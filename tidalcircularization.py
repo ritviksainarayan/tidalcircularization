@@ -111,7 +111,7 @@ class MCMCConfig:
     nwalkers: int = 20
     nsamples: int = 20_000
     ncores: Optional[int] = None            # None = no multiprocessing Pool
-    nfac: np.ndarray = field(default_factory=lambda: np.array([3.0]))      # width of initial ball
+    nfac: np.ndarray = field(default_factory=lambda: np.array([3.0]))      # width around initial guess
     random_seed: Optional[int] = None
     nburn: int = 500                        # burn-in before thinning
 
