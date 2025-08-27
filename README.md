@@ -2,7 +2,7 @@
 
 *Authors: Ritvik Sai Narayan and Aaron Geller*
 
-This package provides a clean, class-based Python interface for fitting tidal circularization models to stellar binary data using **MCMC** with [emcee](https://emcee.readthedocs.io/).  
+This package provides a clean, class-based Python interface for fitting tidal circularization models to stellar binary data using an **MCMC** algorithm with [emcee](https://emcee.readthedocs.io/).  
 
 It implements the functional form from *Meibom & Mathieu (2005)* with Gaussian–Hermite quadrature to account for measurement errors in both period and eccentricity.
 
