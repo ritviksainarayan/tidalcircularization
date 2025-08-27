@@ -1,0 +1,5 @@
+numpy
+pandas
+matplotlib
+emcee>=3
+corner
