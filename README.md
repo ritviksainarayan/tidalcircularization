@@ -31,6 +31,8 @@ Dependencies:
 
 ```python
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 import tidalcircularization as tc
 
 # Load your dataframe with columns:
@@ -38,28 +40,67 @@ import tidalcircularization as tc
 #   e       = eccentricity
 #   e_Per   = error in period
 #   e_e     = error in eccentricity
-df = pd.read_csv("orbits.csv")
+df = pd.read_csv("orbits.csv") # example orbit list from NGC 188
+print(df)
+```
+```
+PKM         Per      e     e_Per    e_e
+0    269  553.202006  0.716  2.718705  0.054
+1    583  119.780691  0.177  0.039886  0.041
+2   3719   51.574489  0.562  0.001612  0.008
+3   3755   10.326005  0.206  0.000094  0.011
+4   3953  940.380237  0.038  2.493827  0.045
+..   ...         ...    ...       ...    ...
+76  5080  550.400000  0.440  1.900000  0.030
+77  5147    6.743200  0.012  0.000400  0.006
+78  5710  298.800000  0.215  1.300000  0.023
+79  5762    6.504300  0.004  0.000040  0.004
+80  8894   14.484700  0.008  0.001500  0.010
 
+[81 rows x 5 columns]
+```
+
+```python
 # Run MCMC fit (with defaults)
-results = tc.fit(df)
-
+results = tc.fit(df,ncores=8)
+```
+```
+100%|██████████| 20000/20000 [01:19<00:00, 252.56it/s]
+Autocorrelation time: [27.70989528]
+Thinning interval: 27
+```
+```python
 # Print parameter summary
 results.print_results()
-
-# Corner plot
-results.plot_corner()
-
+```
+```
+emcee results with 1-sigma uncertainties
+Pcut = 14.4022 +0.1383 -0.1066
+```
+```python
 # Chain trace plots
 results.plot_chains()
-
+```
+![](images/chains.png)
+```python
 # Posterior model draws over data
 results.plot_model_draws(
     df['Per'], df['e'], df['e_Per'], df['e_e'], tc.CircularizationModel()
 )
-
+```
+![](images/modeldraws.png)
+```python
 # Compute Pcirc distribution (eccentricity = 0.01)
 pcirc = results.pcirc_distribution(tc.CircularizationModel())
+
+fig,ax = plt.subplots()
+ax.hist(x=pcirc,histtype='step',linewidth=3,bins=np.arange(12,16,0.1))
+ax.set_xlim(left=14,right=16)
+ax.set_xlabel('Circularization Period')
+ax.set_ylabel('Count')
+plt.show()
 ```
+![](images/histogram.png)
 
 ---
 
