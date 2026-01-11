@@ -6,7 +6,7 @@ This package provides a clean, class-based Python interface for fitting tidal ci
 
 It implements the functional form from *Meibom & Mathieu (2005)* with Gaussian–Hermite quadrature to account for measurement errors in both period and eccentricity.
 
-**If you use `tidalcircularization` in your work, please cite [Narayan et al. (2026a)][https://arxiv.org/abs/2509.12315].**
+**If you use `tidalcircularization` in your work, please cite [Narayan et al. (2026a)](https://arxiv.org/abs/2509.12315).**
 ---
 
 ## Installation
