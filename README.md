@@ -161,6 +161,7 @@ results = tc.fit(
 
 ## Reference
 
+- **Narayan, R. S., et al. (2026a)** "WIYN Open Cluster Study. XCVII. An Extended Radial-Velocity Survey and Spectroscopic Binary Orbits in the Open Cluster NGC 188." *AJ*, 171, 102.
 - **Meibom, S., & Mathieu, R. D. (2005).** "A Study of Tidal Circularization in the Solar-Type Spectroscopic Binary Population of the Open Cluster M35." *ApJ*, 620, 970.
 
 ---
